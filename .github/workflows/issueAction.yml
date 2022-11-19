@@ -11,7 +11,7 @@ jobs:
       - run: |
           git pull origin main
       - name: Change tile colour
-        uses: ./color
+        uses: color
         id: changecolour
         with:
           title: ${{ github.event.issue.title }}
