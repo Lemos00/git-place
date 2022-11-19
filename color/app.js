@@ -18,8 +18,8 @@ let getTile = () =>{
 }
 
 // get name of each emoji based on input color
-let interpretColor = (tile) => {
-    const upperCaseColor = tile.colour.toUpperCase();
+let interpretColor = (colour) => {
+    const upperCaseColor = colour.toUpperCase();
     switch(upperCaseColor) {
         case "RED":
             return ":red_square:";
@@ -57,20 +57,25 @@ let formatIndividualTile = (colour, link) => {
 // create grid for main text file
 let newTile = getTile();
 let text = fs.readFileSync("./grid.txt", "utf8");
-let textArray = text.split("<!---->");
+let textGrid = text.split("/n");
 
-// add new color to specified location
-let location = newTile.Y*WIDTH + newTile.X;
-textArray[location] = interpretColor(newTile);
+for ( let i =0; i<textGrid.length;i++){
+    textGrid[i] = textGrid[i].split("<!---->");
+}
+console.log(textGrid);
+
+//let location = newTile.Y*WIDTH + newTile.X;
+
+textGrid[newTile.X][newTile.Y] = interpretColor(newTile.colour);
 
 let newGrid = "";
-for (let i = 0; i < HEIGHT; i++) {
-    for (let j = 0; j < WIDTH; j++) {
-        let readColor = textArray[i * WIDTH + j];
-        newGrid += formatIndividualTile(readColor, formatTileLink(i, j, readColor))
+for (let i = 0; i < textGrid[0].length; i++) {
+    for (let j = 0; j < textGrid[0][0].length; j++) {
+        let readColor = textGrid[i][j];
+        newGrid += readColor//formatIndividualTile(readColor, formatTileLink(i, j, readColor))
         newGrid += "<!---->";
     }
-    newGrid += "<br />";
+    newGrid += "\n";
 }
 
 fs.writeFileSync("./grid.txt", newGrid);
