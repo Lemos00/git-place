@@ -1,0 +1,12 @@
+name: 'ChangeColour'
+description: 'Change the colour of a square in the grid'
+inputs:
+  title:
+    description: 'Github issue title'
+    required: true
+  user:
+    description: 'Github user'
+    required: true
+runs:
+  using: 'node12'
+  main: 'index.js'
