@@ -125,6 +125,8 @@ let text = fs.readFileSync("./grid.txt", "utf8");
 let tileArray = toTileArray(text);
 
 newTile.colour = interpretColor(newTile.colour)
+console.log("---------------- LINE TEST ------------------------");
+console.log(tileArray);
 tileArray[newTile.Y][newTile.X] = newTile;
 
 console.log(tileArray);
