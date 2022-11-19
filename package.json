@@ -1,0 +1,19 @@
+{
+  "name": "git-place",
+  "version": "1.0.0",
+  "description": "Simulation of r/place within a github repo. HackWestern 9 Project\r ![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png) `#f03c15`",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lemos00/git-place.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lemos00/git-place/issues"
+  },
+  "homepage": "https://github.com/Lemos00/git-place#readme"
+}
