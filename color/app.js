@@ -58,7 +58,7 @@ let newTile = getTile();
 let text = fs.readFileSync("./grid.txt", "utf8");
 let textGrid = text.split("/n");
 
-for ( let i =0; i<textRows.length;i++){
+for ( let i =0; i<textGrid.length;i++){
     textGrid[i] = textGrid[i].split("<!---->");
 }
 console.log(textGrid);
