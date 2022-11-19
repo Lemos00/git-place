@@ -116,7 +116,7 @@ let toGridText = (tileArray)=>{
         text+=toGridRow(tileArray[i]);
         text+='\n';
     }
-    text+=toGridRow[toGridRow.length-1];
+    text+=toGridRow(tileArray[tileArray.length-1]);
     return text;
 }
 ///////main\\\\\\\\
