@@ -56,16 +56,21 @@ let formatIndividualTile = (colour, link) => {
 
 let newTile = getTile();
 let text = fs.readFileSync("./grid.txt", "utf8");
-let textArray = text.split("<!---->");
-let location = newTile.Y*WIDTH + newTile.X;
-console.log(location)
-console.log(newTile.colour)
-textArray[location] = interpretColor(newTile.colour);
+let textGrid = text.split("/n");
+
+for ( let i =0; i<textRows.length;i++){
+    textGrid[i] = textGrid[i].split("<!---->");
+}
+console.log(textGrid);
+
+//let location = newTile.Y*WIDTH + newTile.X;
+
+textGrid[newTile.X][newTile.Y] = interpretColor(newTile.colour);
 
 let newGrid = "";
-for (let i = 0; i < HEIGHT; i++) {
-    for (let j = 0; j < WIDTH; j++) {
-        let readColor = textArray[i * WIDTH + j];
+for (let i = 0; i < textGrid[0].length; i++) {
+    for (let j = 0; j < textGrid[0][0].length; j++) {
+        let readColor = textGrid[i][j];
         newGrid += readColor//formatIndividualTile(readColor, formatTileLink(i, j, readColor))
         newGrid += "<!---->";
     }
