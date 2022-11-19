@@ -58,7 +58,7 @@ console.log(interpretColor(newTile));
 let newGrid = "";
 let i =0;
 for(e in textArray){
-    newGrid+=e;
+    newGrid+=textArray[e];
     newGrid+="<!---->";
     if(i%37 == 0)
         newGrid+="\n";
