@@ -17,18 +17,43 @@ let getTile = () =>{
     return tile;
 }
 
+// get name of each emoji based on input color
+let interpretColor = (tile) => {
+    const upperCaseColor = tile.colour.toUpperCase();
+    switch(upperCaseColor) {
+        case "RED":
+            return ":red_square:";
+        case "ORANGE":
+            return ":orange_square:";
+        case "YELLOW":
+            return ":yellow_square:";
+        case "GREEN":
+            return ":green_square:";
+        case "BLUE":
+            return ":blue_square:";
+        case "PURPLE":
+            return ":purple_square:";
+        case "BROWN":
+            return ":brown_square:";
+        case "BLACK":
+            return ":black_large_square:";
+        case "WHITE":
+            return ":white_large_square:";
+    }
+}
+
 ///////main\\\\\\\\
 
-newTile = getTile();
-
-
+let newTile = getTile();
 let text = fs.readFileSync("./grid.txt", "utf8");
-
-
-textArray = text.split("<!---->");
+let textArray = text.split("<!---->");
 let location = newTile.Y*width + newTile.X;
 
-textArray[location] = "NEW TILE";
+textArray[location] = interpretColor(newTile);
+
+//let text = fs.readFileSync("./test.txt", "utf8");
+console.log(interpretColor(newTile));
+//fs.writeFileSync("./test.txt", text + "\n" + "this is new text");
 
 let newGrid = "";
 let i =0;
