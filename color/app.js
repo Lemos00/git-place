@@ -44,6 +44,32 @@ let interpretColor = (colour) => {
     }
 }
 
+let emojiToColor = (colour) => {
+    const upperCaseColor = colour.toUpperCase();
+    switch(upperCaseColor) {
+        case "RED":
+            return ":red_square:";
+        case "ORANGE":
+            return ":orange_square:";
+        case "YELLOW":
+            return ":yellow_square:";
+        case "GREEN":
+            return ":green_square:";
+        case "BLUE":
+            return ":blue_square:";
+        case "PURPLE":
+            return ":purple_square:";
+        case "BROWN":
+            return ":brown_square:";
+        case "BLACK":
+            return ":black_large_square:";
+        case "WHITE":
+            return ":white_large_square:";
+        default:
+            return ":white_large_square:";
+    }
+}
+
 let formatTileLink = (x, y, colour) => {
     return "https://github.com/lemos00/git-place/issues/new?title=newcolour%7C" + x + "%7C" + y + "%7C" + colour + "&body=Please+Input+your+color+and+%27Submit+new+issue%27"
 }
@@ -52,35 +78,37 @@ let formatIndividualTile = (colour, link) => {
     return "[" + interpretColor(colour) + "]" + "(" + link + ")";
 }
 
+let toTileArray = (gridText)=> {
+    let array = gridText.split("<!---->");
+
+    let tileArray = []
+    for(let i =0;i<array.length;i++){
+        let tempTile = new Tile(i, 0, array[i]);
+        tileArray.push(tempTile);
+    }
+    return tileArray;
+}
+
+let toGridText = (tileArray)=>{
+    let text = "";
+    for(let i =0; i<tileArray.length; i++){
+        text+=tileArray[i].colour;
+        text+="<!---->";
+    }
+    return text;
+}
 ///////main\\\\\\\\
 
 // create grid for main text file
 let newTile = getTile();
 let text = fs.readFileSync("./grid.txt", "utf8");
-let textGrid = text.split("<!---->");
+let tileArray = toTileArray(text);
 
-console.log(textGrid);
+tileArray[newTile.X] = interpretColor(newTile.colour);
 
-//let location = newTile.Y*WIDTH + newTile.X;
+console.log(tileArray);
 
-textGrid[newTile.X] = interpretColor(newTile.colour);
-
-console.log(textGrid);
-
-let newGrid = "";
-// for (let i = 0; i < textGrid[0].length; i++) {
-//     for (let j = 0; j < textGrid[0][0].length; j++) {
-//         let readColor = textGrid[i][j];
-//         newGrid += readColor//formatIndividualTile(readColor, formatTileLink(i, j, readColor))
-//         newGrid += "<!---->";
-//     }
-//     newGrid += "\n";
-// }
+let newGrid = toGridText(tileArray);
 
 
-for (let i = 0; i < textGrid.length; i++) {
-    let readColor = textGrid[i];
-    newGrid += readColor//formatIndividualTile(readColor, formatTileLink(i, j, readColor))
-    newGrid += "<!---->";
-    }
 fs.writeFileSync("./grid.txt", newGrid);
