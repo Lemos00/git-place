@@ -3,7 +3,7 @@ const core = require("@actions/core");
 const width = 37;
 const height = 5;
 
-function Tile(colour, Xpos, Ypos){
+function Tile(Xpos, Ypos, colour){
     this.colour = colour,
     this.X = Xpos,
     this.Y = Ypos
@@ -13,7 +13,7 @@ function Tile(colour, Xpos, Ypos){
 let getTile = () =>{
     let issueTitle = core.getInput('title');
     let titleSplit = issueTitle.split("|");
-    let tile = Tile(titleSplit[1], titleSplit[2], titleSplit[3]);
+    let tile = new Tile(titleSplit[1], titleSplit[2], titleSplit[3]);
     return tile;
 }
 
