@@ -5,9 +5,9 @@ const port = 3000;
 
 const server = http.createServer((req, res) => {
     res.write("Hello Node");
+    res.end();
     let text = fs.readFileSync("notes.txt", "utf-8");
     console.log(text);
-    res.end();
 })
 
 
