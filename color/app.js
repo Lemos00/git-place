@@ -82,7 +82,7 @@ let formatIndividualTile = (colour, link) => {
 
 let toTileArray = (gridText)=> {
     let array = gridText.split('\n');
-    //let array = gridText.split("<!---->");
+    console.log("___________________________________array--------------------------------------");
     console.log(array);
     let tileArray = []
     for(let i =0;i<array.length;i++){
