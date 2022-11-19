@@ -150,7 +150,7 @@ let writeMultipleRows = (tileArray) => {
         newReadmeRows += "<br />";
     }
 
-    fs.writeFileSync("./README.md", newReadmeFile);
+    fs.writeFileSync("./README.md", newReadmeRows);
 }
 
 fs.writeFileSync("./grid.txt", newGrid);
