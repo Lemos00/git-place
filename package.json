@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Lemos00/git-place/issues"
   },
-  "homepage": "https://github.com/Lemos00/git-place#readme"
+  "homepage": "https://github.com/Lemos00/git-place#readme",
+  "dependencies": {
+    "@actions/core": "^1.10.0"
+  }
 }
