@@ -66,18 +66,9 @@ console.log(interpretColor(newTile));
 //fs.writeFileSync("./test.txt", text + "\n" + "this is new text");
 
 let newGrid = "";
-let i =0;
-for(e in textArray){
-    newGrid+=textArray[e];
-    newGrid+="<!---->";
-    if(i%37 == 0)
-        newGrid+="\n";
-    i++;
-}
-
 for (let i = 0; i < HEIGHT; i++) {
     for (let j = 0; j < WIDTH; j++) {
-        newGrid += formatIndividualTile(textArray[i * WIDTH + j], formatTileLink(i, j, colour))
+        newGrid += formatIndividualTile(textArray[i * WIDTH + j], formatTileLink(i, j, newTile.colour))
         newGrid += "<!---->";
     }
     newGrid += "<br />";
