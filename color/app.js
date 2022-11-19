@@ -65,7 +65,7 @@ let newGrid = "";
 for (let i = 0; i < HEIGHT; i++) {
     for (let j = 0; j < WIDTH; j++) {
         let readColor = textArray[i * WIDTH + j];
-        newGrid += formatIndividualTile(readColor, formatTileLink(i, j, readColor))
+        newGrid += readColor//formatIndividualTile(readColor, formatTileLink(i, j, readColor))
         newGrid += "<!---->";
     }
     newGrid += "<br />";
