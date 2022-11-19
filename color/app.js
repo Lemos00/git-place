@@ -133,6 +133,9 @@ tileArray[newTile.Y][newTile.X] = newTile;
 console.log("---------------- TEST END ------------------------");
 
 let newGrid = toGridText(tileArray);
+console.log("---------------- newGrid ------------------------");
+console.log(newGrid);
+console.log("---------------- TEST END ------------------------");
 
 // logic for readme file
 let writeToReadme = (tileArray) => {
