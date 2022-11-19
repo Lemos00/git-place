@@ -154,7 +154,7 @@ let writeMultipleRows = (tileArray) => {
 
     // add title and description of what to do
     newReadmeRows += "# git-place\n"
-    newReadmeRows += "### To submit your color, click on a pixel, and swap 'WHITE' on the title with your color of choice.\n"
+    newReadmeRows += "### To submit your color, click on a pixel, and swap 'WHITE' on the title of your issue with your color of choice.\n"
 
     for (let i = 0; i < tileArray.length; i++) {
         newReadmeRows += writeToReadme(tileArray[i]);
