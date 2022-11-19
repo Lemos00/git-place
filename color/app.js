@@ -1,4 +1,4 @@
-// // const fs = require("fs");
+const fs = require("fs");
 // const http = require("http");
 // const fs = require("fs");
 // const port = 3000;
@@ -20,3 +20,5 @@
 // })
 
 console.log("yo")
+const text = fs.readFileSync("notes.txt", "utf-8");
+fs.writeFileSync("test.txt", text);
