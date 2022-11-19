@@ -56,25 +56,30 @@ let formatIndividualTile = (colour, link) => {
 
 let newTile = getTile();
 let text = fs.readFileSync("./grid.txt", "utf8");
-let textGrid = text.split("/n");
+let textGrid = text.split("<!---->");
 
-for ( let i =0; i<textGrid.length;i++){
-    textGrid[i] = textGrid[i].split("<!---->");
-}
 console.log(textGrid);
 
 //let location = newTile.Y*WIDTH + newTile.X;
 
-textGrid[newTile.X][newTile.Y] = interpretColor(newTile.colour);
+textGrid[newTile.X] = interpretColor(newTile.colour);
+
+console.log(textGrid);
 
 let newGrid = "";
-for (let i = 0; i < textGrid[0].length; i++) {
-    for (let j = 0; j < textGrid[0][0].length; j++) {
-        let readColor = textGrid[i][j];
-        newGrid += readColor//formatIndividualTile(readColor, formatTileLink(i, j, readColor))
-        newGrid += "<!---->";
-    }
-    newGrid += "\n";
-}
+// for (let i = 0; i < textGrid[0].length; i++) {
+//     for (let j = 0; j < textGrid[0][0].length; j++) {
+//         let readColor = textGrid[i][j];
+//         newGrid += readColor//formatIndividualTile(readColor, formatTileLink(i, j, readColor))
+//         newGrid += "<!---->";
+//     }
+//     newGrid += "\n";
+// }
 
+
+for (let i = 0; i < textGrid.length; i++) {
+    let readColor = textGrid[i];
+    newGrid += readColor//formatIndividualTile(readColor, formatTileLink(i, j, readColor))
+    newGrid += "<!---->";
+    }
 fs.writeFileSync("./grid.txt", newGrid);
