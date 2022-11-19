@@ -112,9 +112,11 @@ let toGridRow = (tileArray)=>{
 
 let toGridText = (tileArray)=>{
     let text = "";
-    for(let i =0; i<tileArray.length ; i++){
+    for(let i =0; i<tileArray.length -1; i++){
         text+=toGridRow(tileArray[i]);
+        text+='\n';
     }
+    text+=toGridRow[tileArray.length-1];
     return text;
 }
 ///////main\\\\\\\\
