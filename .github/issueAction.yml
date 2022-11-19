@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          git pull origin master
+          git pull origin main
       - name: Change tile colour
         uses: ./color
         id: changecolour

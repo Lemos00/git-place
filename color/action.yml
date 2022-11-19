@@ -8,5 +8,5 @@ inputs:
     description: 'Github user'
     required: true
 runs:
-  using: 'node12'
-  main: 'index.js'
+  using: 'node18'
+  main: 'app.js'
