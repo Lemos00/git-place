@@ -1,7 +1,7 @@
 const fs = require("fs");
 const core = require("@actions/core");
-const width = 37;
-const height = 5;
+const WIDTH = 37;
+const HEIGHT = 5;
 
 function Tile(Xpos, Ypos, colour){
     this.colour = colour,
@@ -39,7 +39,13 @@ let interpretColor = (tile) => {
             return ":black_large_square:";
         case "WHITE":
             return ":white_large_square:";
+        default:
+            return ":white_large_square:";
     }
+}
+
+let formatTileLink = (x, y, colour) => {
+    return "https://github.com/lemos00/git-place/issues/new?title=newcolour%7C" + x + "%7C" + y + "%7C" + colour + "&body=Please+Input+your+color+and+%27Submit+new+issue%27"
 }
 
 ///////main\\\\\\\\
@@ -47,7 +53,7 @@ let interpretColor = (tile) => {
 let newTile = getTile();
 let text = fs.readFileSync("./grid.txt", "utf8");
 let textArray = text.split("<!---->");
-let location = newTile.Y*width + newTile.X;
+let location = newTile.Y*WIDTH + newTile.X;
 
 textArray[location] = interpretColor(newTile);
 
@@ -63,6 +69,14 @@ for(e in textArray){
     if(i%37 == 0)
         newGrid+="\n";
     i++;
+}
+
+for (let i = 0; i < HEIGHT; i++) {
+    for (let j = 0; j < WIDTH; j++) {
+        // += each new given tile
+
+    }
+    // write the new line break row
 }
 
 fs.writeFileSync("./grid.txt", newGrid);
