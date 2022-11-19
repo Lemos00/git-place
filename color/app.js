@@ -93,10 +93,11 @@ let toTileArray = (gridText)=> {
 
 let toGridText = (tileArray)=>{
     let text = "";
-    for(let i =0; i<tileArray.length; i++){
+    for(let i =0; i<tileArray.length -1; i++){
         text+=tileArray[i].colour;
         text+="<!---->";
     }
+    text+=tileArray[tileArray.length-1].colour;
     return text;
 }
 ///////main\\\\\\\\
