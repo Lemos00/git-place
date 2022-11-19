@@ -100,13 +100,21 @@ let toTileArray = (gridText)=> {
     return tileArray;
 }
 
-let toGridText = (tileArray)=>{
+let toGridRow = (tileArray)=>{
     let text = "";
     for(let i =0; i<tileArray.length -1; i++){
         text+=tileArray[i].colour;
         text+="<!---->";
     }
     text+=tileArray[tileArray.length-1].colour;
+    return text;
+}
+
+let toGridText = (tileArray)=>{
+    let text = "";
+    for(let i =0; i<tileArray.length ; i++){
+        text+=toGridRow(tileArray[i]);
+    }
     return text;
 }
 ///////main\\\\\\\\
