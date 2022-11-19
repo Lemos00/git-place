@@ -48,6 +48,10 @@ let formatTileLink = (x, y, colour) => {
     return "https://github.com/lemos00/git-place/issues/new?title=newcolour%7C" + x + "%7C" + y + "%7C" + colour + "&body=Please+Input+your+color+and+%27Submit+new+issue%27"
 }
 
+let formatIndividualTile = (colour, link) => {
+    return "[" + interpretColor(colour) + "]" + "(" + link + ")";
+}
+
 ///////main\\\\\\\\
 
 let newTile = getTile();
@@ -73,10 +77,10 @@ for(e in textArray){
 
 for (let i = 0; i < HEIGHT; i++) {
     for (let j = 0; j < WIDTH; j++) {
-        // += each new given tile
-
+        newGrid += formatIndividualTile(textArray[i * WIDTH + j], formatTileLink(i, j, colour))
+        newGrid += "<!---->";
     }
-    // write the new line break row
+    newGrid += "<br />";
 }
 
 fs.writeFileSync("./grid.txt", newGrid);
