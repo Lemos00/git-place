@@ -2,7 +2,7 @@
   "name": "git-place",
   "version": "1.0.0",
   "description": "Simulation of r/place within a github repo. HackWestern 9 Project\r ![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png) `#f03c15`",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Lemos00/git-place#readme",
   "dependencies": {
-    "@actions/core": "^1.10.0"
+    "@actions/core": "^1.10.0",
+    "readfile": "^1.0.1"
   }
 }
