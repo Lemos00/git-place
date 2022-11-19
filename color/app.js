@@ -81,12 +81,21 @@ let formatIndividualTile = (colour, link) => {
 }
 
 let toTileArray = (gridText)=> {
-    let array = gridText.split("<!---->");
-
+    let array = gridText.split('\n');
+    //let array = gridText.split("<!---->");
+    console.log(array);
     let tileArray = []
     for(let i =0;i<array.length;i++){
-        let tempTile = new Tile(i, 0, array[i]);
-        tileArray.push(tempTile);
+
+        let tempRow = array[i].split("<!---->");
+        let tempTileRow = [];
+
+        for(let j = 0; j<tempRow.length;j++){
+            let tempTile = new Tile(j, i, tempRow[j]);
+            tempTileRow.push(tempTile);
+        }
+            
+            tileArray.push(tempTileRow);
     }
     return tileArray;
 }
@@ -108,7 +117,7 @@ let text = fs.readFileSync("./grid.txt", "utf8");
 let tileArray = toTileArray(text);
 
 newTile.colour = interpretColor(newTile.colour)
-tileArray[newTile.X] = newTile;
+tileArray[newTile.X][newTile.Y] = newTile;
 
 console.log(tileArray);
 
