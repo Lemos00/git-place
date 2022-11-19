@@ -20,5 +20,5 @@ const fs = require("fs");
 // })
 
 console.log("yo")
-const text = fs.readFileSync("./test.txt", "utf-8");
+const text = fs.readFileSync("./test.txt", "utf8");
 fs.writeFileSync("./test.txt", text);
