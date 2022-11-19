@@ -50,7 +50,7 @@ let backwardsColorConvert = (colour) => {
         case ":red_square:":
             return "RED";
         case ":orange_square:":
-            return "ORANGE:";
+            return "ORANGE";
         case ":yellow_square:":
             return "YELLOW";
         case ":green_square:":
@@ -66,7 +66,7 @@ let backwardsColorConvert = (colour) => {
         case ":white_large_square:":
             return "WHITE";
         default:
-            return "WHITE:";
+            return "WHITE";
     }
 }
 
