@@ -61,14 +61,11 @@ let location = newTile.Y*WIDTH + newTile.X;
 
 textArray[location] = interpretColor(newTile);
 
-//let text = fs.readFileSync("./test.txt", "utf8");
-console.log(interpretColor(newTile));
-//fs.writeFileSync("./test.txt", text + "\n" + "this is new text");
-
 let newGrid = "";
 for (let i = 0; i < HEIGHT; i++) {
     for (let j = 0; j < WIDTH; j++) {
-        newGrid += formatIndividualTile(textArray[i * WIDTH + j], formatTileLink(i, j, newTile.colour))
+        let readColor = textArray[i * WIDTH + j];
+        newGrid += formatIndividualTile(readColor, formatTileLink(i, j, readColor))
         newGrid += "<!---->";
     }
     newGrid += "<br />";
