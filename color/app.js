@@ -73,7 +73,7 @@ let backwardsColorConvert = (colour) => {
 
 
 let formatTileLink = (x, y, colour) => {
-    return "https://github.com/lemos00/git-place/issues/new?title=newcolour%7C" + x + "%7C" + y + "%7C" + backwardsColorConvert(colour) + "&body=Please+Input+your+color+and+%27Submit+new+issue%27"
+    return "https://github.com/lemos00/git-place/issues/new?title=newcolour%7C" + x + "%7C" + y + "%7C" + backwardsColorConvert(colour) + "&body=Please+Input+your+color.+You+can+choose+RED,+BLUE,+BROWN,+BLACK,+GREEN,+ORANGE,+PURPLE,+YELLOW,+WHITE,+at+the+end+of+the+title+%27Submit+new+issue%27"
 }
 
 let formatIndividualTile = (colour, link) => {
