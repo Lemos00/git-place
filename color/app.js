@@ -34,5 +34,6 @@ let interpretColor = (colorArray) => {
 }
 
 let text = fs.readFileSync("./test.txt", "utf8");
-text+=getColour(); 
+let givenColour =getColour();
+console.log(interpretColor(["0", givenColour]));
 fs.writeFileSync("./test.txt", text + "\n" + "this is new text");
