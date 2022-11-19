@@ -7,6 +7,6 @@ let getColour = () =>{
     return titleSplit[1]
 }
 
-const text = fs.readFileSync("./test.txt", "utf8");
+let text = fs.readFileSync("./test.txt", "utf8");
 text+=getColour(); 
 fs.writeFileSync("./test.txt", text + "\n" + "this is new text");
