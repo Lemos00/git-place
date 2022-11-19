@@ -125,7 +125,7 @@ let text = fs.readFileSync("./grid.txt", "utf8");
 let tileArray = toTileArray(text);
 
 newTile.colour = interpretColor(newTile.colour)
-tileArray[newTile.X][newTile.Y] = newTile;
+tileArray[newTile.Y][newTile.X] = newTile;
 
 console.log(tileArray);
 
@@ -140,8 +140,18 @@ let writeToReadme = (tileArray) => {
             formatTileLink(tileArray[i].X, tileArray[i].Y, tileArray[i].colour))
     }
 
+    return newReadmeFile;
+}
+
+let writeMultipleRows = (tileArray) => {
+    let newReadmeRows = ""
+    for (let i = 0; i < tileArray.length; i++) {
+        newReadmeRows += writeToReadme(tileArray[i]);
+        newReadmeRows += "<br />";
+    }
+
     fs.writeFileSync("./README.md", newReadmeFile);
 }
 
 fs.writeFileSync("./grid.txt", newGrid);
-writeToReadme(tileArray);
+writeMultipleRows(tileArray);
