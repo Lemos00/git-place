@@ -89,31 +89,25 @@ let toTileArray = (gridText)=> {
     return tileArray;
 }
 
-
+let toGridText = (tileArray)=>{
+    let text = "";
+    for(let i =0; i<tileArray.length; i++){
+        text+=tileArray[i].colour;
+        text+="<!---->";
+    }
+    return text;
+}
 ///////main\\\\\\\\
 
 let newTile = getTile();
 let text = fs.readFileSync("./grid.txt", "utf8");
-let textGrid = toTileArray(text);
+let tileArray = toTileArray(text);
 
-textGrid[newTile.X] = interpretColor(newTile.colour);
+tileArray[newTile.X] = interpretColor(newTile.colour);
 
-console.log(textGrid);
+console.log(tileArray);
 
-let newGrid = "";
-// for (let i = 0; i < textGrid[0].length; i++) {
-//     for (let j = 0; j < textGrid[0][0].length; j++) {
-//         let readColor = textGrid[i][j];
-//         newGrid += readColor//formatIndividualTile(readColor, formatTileLink(i, j, readColor))
-//         newGrid += "<!---->";
-//     }
-//     newGrid += "\n";
-// }
+let newGrid = toGridText(tileArray);
 
 
-for (let i = 0; i < textGrid.length; i++) {
-    let readColor = textGrid[i];
-    newGrid += readColor//formatIndividualTile(readColor, formatTileLink(i, j, readColor))
-    newGrid += "<!---->";
-    }
 fs.writeFileSync("./grid.txt", newGrid);
