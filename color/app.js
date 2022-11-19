@@ -6,26 +6,7 @@ let getColour = () =>{
     let titleSplit = issueTitle.split("|");
     return titleSplit[1]
 }
-// const http = require("http");
-// const fs = require("fs");
-// const port = 3000;
-
-// const server = http.createServer((req, res) => {
-//     res.write("Hello Node");
-//     res.end();
-//     let text = fs.readFileSync("notes.txt", "utf-8");
-//     console.log(text);
-// })
-
-
-// server.listen(port, (error) => {
-//     if (error) {
-//         console.log("something went wrong");
-//     } else {
-//         console.log("Server is listening on port " + port);
-//     }
-// })
 
 const text = fs.readFileSync("./test.txt", "utf8");
 text+=getColour(); 
-fs.writeFileSync("./test.txt", text + "this is new text");
+fs.writeFileSync("./test.txt", text + "\n" + "this is new text");
