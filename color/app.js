@@ -18,7 +18,3 @@ server.listen(port, (error) => {
         console.log("Server is listening on port " + port);
     }
 })
-
-
-// let fileText = fs.readFileSync("notes.txt", "utf-8");
-// console.log(fileText)
