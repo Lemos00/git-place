@@ -54,11 +54,13 @@ let formatIndividualTile = (colour, link) => {
 
 ///////main\\\\\\\\
 
+// create grid for main text file
 let newTile = getTile();
 let text = fs.readFileSync("./grid.txt", "utf8");
 let textArray = text.split("<!---->");
-let location = newTile.Y*WIDTH + newTile.X;
 
+// add new color to specified location
+let location = newTile.Y*WIDTH + newTile.X;
 textArray[location] = interpretColor(newTile);
 
 let newGrid = "";
