@@ -44,31 +44,6 @@ let interpretColor = (colour) => {
     }
 }
 
-let emojiToColor = (colour) => {
-    const upperCaseColor = colour.toUpperCase();
-    switch(upperCaseColor) {
-        case "RED":
-            return ":red_square:";
-        case "ORANGE":
-            return ":orange_square:";
-        case "YELLOW":
-            return ":yellow_square:";
-        case "GREEN":
-            return ":green_square:";
-        case "BLUE":
-            return ":blue_square:";
-        case "PURPLE":
-            return ":purple_square:";
-        case "BROWN":
-            return ":brown_square:";
-        case "BLACK":
-            return ":black_large_square:";
-        case "WHITE":
-            return ":white_large_square:";
-        default:
-            return ":white_large_square:";
-    }
-}
 
 let formatTileLink = (x, y, colour) => {
     return "https://github.com/lemos00/git-place/issues/new?title=newcolour%7C" + x + "%7C" + y + "%7C" + colour + "&body=Please+Input+your+color+and+%27Submit+new+issue%27"
@@ -103,7 +78,8 @@ let newTile = getTile();
 let text = fs.readFileSync("./grid.txt", "utf8");
 let tileArray = toTileArray(text);
 
-tileArray[newTile.X] = interpretColor(newTile.colour);
+newTile.colour = interpretColor(newTile.colour)
+tileArray[newTile.X] = newTile;
 
 console.log(tileArray);
 
