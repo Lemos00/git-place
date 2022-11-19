@@ -129,7 +129,6 @@ console.log("---------------- LINE TEST ------------------------");
 console.log(tileArray);
 tileArray[newTile.Y][newTile.X] = newTile;
 console.log("---------------- TEST END ------------------------");
-console.log(tileArray);
 
 let newGrid = toGridText(tileArray);
 
