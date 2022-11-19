@@ -44,13 +44,40 @@ let interpretColor = (colour) => {
     }
 }
 
+let backwardsColorConvert = (colour) => {
+    const upperCaseColor = colour.toUpperCase();
+    switch(upperCaseColor) {
+        case ":red_square:":
+            return "RED";
+        case ":orange_square:":
+            return "ORANGE:";
+        case ":yellow_square:":
+            return "YELLOW";
+        case ":green_square:":
+            return "GREEN";
+        case ":blue_square:":
+            return "BLUE";
+        case ":purple_square:":
+            return "PURPLE";
+        case ":brown_square:":
+            return "BROWN";
+        case ":black_large_square:":
+            return "BLACK";
+        case ":white_large_square:":
+            return "WHITE";
+        default:
+            return "WHITE:";
+    }
+}
+
+
 
 let formatTileLink = (x, y, colour) => {
-    return "https://github.com/lemos00/git-place/issues/new?title=newcolour%7C" + x + "%7C" + y + "%7C" + colour + "&body=Please+Input+your+color+and+%27Submit+new+issue%27"
+    return "https://github.com/lemos00/git-place/issues/new?title=newcolour%7C" + x + "%7C" + y + "%7C" + backwardsColorConvert(colour) + "&body=Please+Input+your+color+and+%27Submit+new+issue%27"
 }
 
 let formatIndividualTile = (colour, link) => {
-    return "[" + interpretColor(colour) + "]" + "(" + link + ")";
+    return "[" + colour + "]" + "(" + link + ")";
 }
 
 let toTileArray = (gridText)=> {
@@ -86,5 +113,17 @@ console.log(tileArray);
 
 let newGrid = toGridText(tileArray);
 
+// logic for readme file
+let writeToReadme = (tileArray) => {
+    let newReadmeFile = "";
+
+    for (let i = 0; i < tileArray.length; i++) {
+        newReadmeFile += formatIndividualTile(tileArray[i].colour,
+            formatTileLink(tileArray[i].X, tileArray[i].Y, tileArray[i].colour))
+    }
+
+    fs.writeFileSync("./README.md", newReadmeFile);
+}
 
 fs.writeFileSync("./grid.txt", newGrid);
+writeToReadme(tileArray);
